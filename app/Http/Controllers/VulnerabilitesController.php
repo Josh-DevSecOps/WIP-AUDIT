@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
 
 class VulnerabilitesController extends Controller 
 {
@@ -14,7 +17,12 @@ class VulnerabilitesController extends Controller
    */
   public function index()
   {
-    
+      $vulnerabilites = DB::table('vulnerabilte')
+          ->join('statusRisk','statusRisk.id','=','vulnerabilte.statusrisk_id')
+          ->join('menace','menace.id','=','vulnerabilte.menace_id')
+          ->get();
+
+      return view('list_vulnerabilites', ['vulnerabilites'=>$vulnerabilites]);
   }
 
   /**

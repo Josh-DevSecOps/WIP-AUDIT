@@ -16,5 +16,12 @@ Route::get('/', function () {
 
 });
 
+//Route Protocoles
 Route::resource('Protocoles', 'ProtocolesController');
+// Route StatusRisks
 Route::resource('StatusRisks', 'StatusRisksController');
+// Route Menaces
+Route::resource('Menaces', 'MenacesController');
+
+// Route Vulnerabilites
+Route::resource('Vulnerabilites', 'VulnerabilitesController');

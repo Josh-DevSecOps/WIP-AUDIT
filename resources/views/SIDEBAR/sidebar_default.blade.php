@@ -54,25 +54,25 @@
             <a href="{{ url ('') }}"><i class="fa fa-folder-open"></i> RISK ASSESSMENT </a>
         </li> --}}
 
-        <!--  Menaces -->
+        <!--  risk status -->
             <li {{ (Request::is('/') ? 'class="active"' : '') }}>
-                <a href="{{ url ('') }}"><i class="fa fa-exclamation-triangle"></i> THREATS </a>
+                <a href="{{ url('StatusRisks') }}"><i class="fa fa-sitemap fa-fw"></i> RISK STATUS </a>
             </li>
-
-            <!--  Vulnerabilites -->
-            <li {{ (Request::is('/') ? 'class="active"' : '') }}>
-                <a href="{{ url ('') }}"><i class="fa fa-filter"></i> VULNERABILITY </a>
-            </li>
-
             <!--  Protocols -->
             <li {{ (Request::is('/') ? 'class="active"' : '') }}>
                 <a href="{{ url('Protocoles') }}"><i class="fa fa-sitemap fa-fw"></i> PROTOCOLS </a>
             </li>
-            <!--  risk status -->
+            <!--  Menaces -->
             <li {{ (Request::is('/') ? 'class="active"' : '') }}>
-                <a href="{{ url('StatusRisks') }}"><i class="fa fa-sitemap fa-fw"></i> RISK STATUS </a>
+            <a href="{{ url ('Menaces') }}"><i class="fa fa-exclamation-triangle"></i> THREATS </a>
             </li>
 
+
+
+            <!--  Vulnerabilites -->
+            <li {{ (Request::is('/') ? 'class="active"' : '') }}>
+                <a href="{{ url ('Vulnerabilites') }}"><i class="fa fa-filter"></i> VULNERABILITY </a>
+            </li>
 
 
 

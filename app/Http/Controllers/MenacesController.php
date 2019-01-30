@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Protocoles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
 
 class MenacesController extends Controller 
 {
@@ -14,7 +18,11 @@ class MenacesController extends Controller
    */
   public function index()
   {
-    
+      $menaces = DB::table('menace')
+          ->join('protocole','protocole.id','=','menace.protocole_id')
+          ->get();
+
+      return view('list_menaces', ['menaces'=>$menaces,'protocoles'=>Protocoles::all()]);
   }
 
   /**
