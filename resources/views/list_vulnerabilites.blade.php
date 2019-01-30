@@ -3,13 +3,13 @@
 @section('section')
 
 <div class="row">
+    <div class="table-responsive">
+        <div align="right">
+            <button type="button" name="add" id="add" class="btn btn-danger" title="Nouveau"><i class="fa fa-plus-square "></i></button>
+        </div>
+    </div>
     <div class="col-sm-12">
         @section ('cotable_panel_title','LIST VULNERABILITE')
-        <div class="table-responsive">
-            <div align="right">
-                <button type="button" name="add" id="add" class="btn btn-danger" title="Nouveau"><i class="fa fa-plus-square "></i></button>
-            </div>
-        </div>
 
         @section ('cotable_panel_body')
         <table class="table table-bordered">
