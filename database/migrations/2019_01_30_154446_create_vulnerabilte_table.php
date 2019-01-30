@@ -17,6 +17,8 @@ class CreateVulnerabilteTable extends Migration {
 			$table->string('solution_vulnerabilite', 255)->nullable();
 			$table->smallInteger('probabilite_risk');
 			$table->smallInteger('impact_risk');
+			$table->integer('statusrisk_id')->unsigned();
+			$table->integer('menace_id')->unsigned();
 		});
 	}
 

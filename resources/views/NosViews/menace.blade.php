@@ -13,6 +13,10 @@
 			{!! Form::text('solution_menace') !!}
 		</li>
 		<li>
+			{!! Form::label('protocole_id', 'Protocole_id:') !!}
+			{!! Form::text('protocole_id') !!}
+		</li>
+		<li>
 			{!! Form::submit() !!}
 		</li>
 	</ul>

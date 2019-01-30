@@ -29,6 +29,14 @@
 			{!! Form::text('impact_risk') !!}
 		</li>
 		<li>
+			{!! Form::label('statusrisk_id', 'Statusrisk_id:') !!}
+			{!! Form::text('statusrisk_id') !!}
+		</li>
+		<li>
+			{!! Form::label('menace_id', 'Menace_id:') !!}
+			{!! Form::text('menace_id') !!}
+		</li>
+		<li>
 			{!! Form::submit() !!}
 		</li>
 	</ul>

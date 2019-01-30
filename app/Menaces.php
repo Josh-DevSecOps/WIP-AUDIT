@@ -9,7 +9,7 @@ class Menaces extends Model
 
     protected $table = 'menace';
     public $timestamps = true;
-    protected $fillable = array('nom_menace', 'description_menace', 'solution_menace');
+    protected $fillable = array('nom_menace', 'description_menace', 'solution_menace', 'protocole_id');
 
     public function Protocole()
     {

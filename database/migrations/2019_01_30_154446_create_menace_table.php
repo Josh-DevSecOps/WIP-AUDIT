@@ -13,6 +13,7 @@ class CreateMenaceTable extends Migration {
 			$table->string('nom_menace', 255);
 			$table->string('description_menace', 255);
 			$table->string('solution_menace', 255);
+			$table->integer('protocole_id')->unsigned();
 		});
 	}
 
