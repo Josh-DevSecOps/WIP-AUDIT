@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Protocoles;
 use Illuminate\Http\Request;
 
 class ProtocolesController extends Controller 
@@ -14,7 +15,9 @@ class ProtocolesController extends Controller
    */
   public function index()
   {
-    
+
+      $protocols =Protocoles::all();
+      return view('list_protocols', compact('protocols'));
   }
 
   /**

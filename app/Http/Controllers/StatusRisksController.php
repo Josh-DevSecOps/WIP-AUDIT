@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\StatusRisks;
 use Illuminate\Http\Request;
 
 class StatusRisksController extends Controller 
@@ -14,7 +15,8 @@ class StatusRisksController extends Controller
    */
   public function index()
   {
-    
+      $riskstatus =StatusRisks::all();
+      return view('list_riskstatus', compact('riskstatus'));
   }
 
   /**

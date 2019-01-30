@@ -66,7 +66,11 @@
 
             <!--  Protocols -->
             <li {{ (Request::is('/') ? 'class="active"' : '') }}>
-                <a href="{{ url ('Protocoles') }}"><i class="fa fa-sitemap fa-fw"></i> PROTOCOLS </a>
+                <a href="{{ url('Protocoles') }}"><i class="fa fa-sitemap fa-fw"></i> PROTOCOLS </a>
+            </li>
+            <!--  risk status -->
+            <li {{ (Request::is('/') ? 'class="active"' : '') }}>
+                <a href="{{ url('StatusRisks') }}"><i class="fa fa-sitemap fa-fw"></i> RISK STATUS </a>
             </li>
 
 

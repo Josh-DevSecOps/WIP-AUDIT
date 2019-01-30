@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('test');
+    return view('welcome');
 
 });
 
-/*Route::resource('StatusRisks', 'StatusRisksController');*/
+Route::resource('Protocoles', 'ProtocolesController');
+Route::resource('StatusRisks', 'StatusRisksController');
