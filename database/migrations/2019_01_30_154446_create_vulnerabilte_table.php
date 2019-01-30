@@ -17,13 +17,23 @@ class CreateVulnerabilteTable extends Migration {
 			$table->string('solution_vulnerabilite', 255)->nullable();
 			$table->smallInteger('probabilite_risk');
 			$table->smallInteger('impact_risk');
-			$table->integer('statusrisk_id')->unsigned();
-			$table->integer('menace_id')->unsigned();
+			$table->integer('statusrisk_id')->references('id')->on('statusRisk')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+			$table->integer('menace_id')->references('id')->on('menace')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
 		});
 	}
 
 	public function down()
 	{
+        Schema::table('vulnerabilte', function(Blueprint $table) {
+            $table->dropForeign('vulnerabilte_statusrisk_id_foreign');
+        });
+        Schema::table('vulnerabilte', function(Blueprint $table) {
+            $table->dropForeign('vulnerabilte_menace_id_foreign');
+        });
 		Schema::drop('vulnerabilte');
 	}
 }
