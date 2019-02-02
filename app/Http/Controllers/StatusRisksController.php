@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\StatusRisks;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Http\Exceptions;
+use Illuminate\Http\JsonResponse;
 
 class StatusRisksController extends Controller 
 {
@@ -24,9 +27,17 @@ class StatusRisksController extends Controller
    *
    * @return Response
    */
-  public function create()
+  public function create(Request $request)
   {
-    
+      //return "sfs";
+     // dd($request->all());
+
+      if($request->ajax())
+      {
+          $riskstatus =  StatusRisks::create($request->all());
+
+          return response()->json($riskstatus);
+      }
   }
 
   /**
@@ -36,7 +47,12 @@ class StatusRisksController extends Controller
    */
   public function store(Request $request)
   {
-    
+      if($request->ajax())
+      {
+          $riskstatus =  StatusRisks::create($request->all());
+
+          return response()->json($riskstatus);
+      }
   }
 
   /**
@@ -45,9 +61,13 @@ class StatusRisksController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function show($id)
+  public function show(Request $request)
   {
-    
+      if($request->ajax())
+      {
+          $riskstatus =  StatusRisks::find($request->id);
+          return Response($riskstatus);
+      }
   }
 
   /**
@@ -78,10 +98,35 @@ class StatusRisksController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function destroy($id)
+  public function destroy(Request $request)
   {
-    
+      StatusRisks::destroy($request->id);
+
   }
+
+    public function UpdateStatusRisks(Request $request)
+    {
+
+        if($request->ajax())
+        {
+
+            //recuperation de la clé d'un enregistrement
+            $riskstatus =  StatusRisks::find($request->id);
+
+            // recuperation de champ modifier
+            $riskstatus->libelle = $request->libelle;
+
+            $riskstatus->valeur = $request->valeur;
+
+
+            //enregistrement des modifications
+            $riskstatus->save();
+
+            return Response($riskstatus);
+        }
+    }
+
+
   
 }
 

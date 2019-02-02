@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Menaces;
 use App\Protocoles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
+use Illuminate\Http\Exceptions;
+use Illuminate\Http\JsonResponse;
+
 
 
 
@@ -42,7 +47,12 @@ class MenacesController extends Controller
    */
   public function store(Request $request)
   {
-    
+      if($request->ajax())
+      {
+          $menaces =  Menaces::create($request->all());
+
+          return response()->json($menaces);
+      }
   }
 
   /**
@@ -51,9 +61,14 @@ class MenacesController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function show($id)
+  public function show(Request $request)
   {
-    
+
+      if($request->ajax())
+      {
+          $menaces =  Menaces::find($request->id);
+          return Response($menaces);
+      }
   }
 
   /**
@@ -84,10 +99,36 @@ class MenacesController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function destroy($id)
+  public function destroy(Request $request)
   {
-    
+      Menaces::destroy($request->id);
+
   }
+
+  //update information
+
+    public function UpdateMenaces(Request $request)
+    {
+   //dd($request->all());
+        if($request->ajax())
+        {
+
+            //recuperation de la clé d'un enregistrement
+            $menaces =  Menaces::find($request->id);
+
+            // recuperation de champ modifier
+            $menaces->nom_menace = $request->nom_menace;
+            $menaces->description_menace = $request->description_menace;
+            $menaces->solution_menace = $request->solution_menace;
+            $menaces->protocole_id = $request->protocole_id;
+
+
+            //enregistrement des modifications
+            $menaces->save();
+
+            return Response($menaces);
+        }
+    }
   
 }
 

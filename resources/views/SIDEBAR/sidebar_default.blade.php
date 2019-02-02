@@ -19,7 +19,7 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-folder-open"></i> RISK ASSESSMENT<span class="fa arrow"></span></a>
+                <a href="/"><i class="fa fa-folder-open"></i> RISK ASSESSMENT<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="#">NEW EXPERIENCE</a>

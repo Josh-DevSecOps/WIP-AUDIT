@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Menaces;
+use App\StatusRisks;
+use App\Vulnerabilites;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -22,7 +25,7 @@ class VulnerabilitesController extends Controller
           ->join('menace','menace.id','=','vulnerabilte.menace_id')
           ->get();
 
-      return view('list_vulnerabilites', ['vulnerabilites'=>$vulnerabilites]);
+      return view('list_vulnerabilites', ['vulnerabilites'=>$vulnerabilites,'menaces'=>Menaces::all(),'statusrisks'=>StatusRisks::all()]);
   }
 
   /**
@@ -42,7 +45,30 @@ class VulnerabilitesController extends Controller
    */
   public function store(Request $request)
   {
-    
+
+     // dd($request->all());
+
+      if($request->ajax())
+      {
+
+          $vulnerabilites = new Vulnerabilites();
+
+          $vulnerabilites->nom_vulnerabilite = $request->nom_vulnerabilite;
+          $vulnerabilites->description_vulnerabilite = $request->description_vulnerabilite;
+          $vulnerabilites->methodetoutils_vulnerabilite = $request->methodetoutils_vulnerabilite;
+          $vulnerabilites->impact_vulnerabilite=$request->impact_vulnerabilite;
+          $vulnerabilites->solution_vulnerabilite=$request->probabilite_risk;
+          $vulnerabilites->probabilite_risk=$request->impact_risk;
+          $vulnerabilites->impact_risk = $request->impact_risk;
+          $vulnerabilites->statusrisk_id = $request->riskstatus_id;
+          $vulnerabilites->menace_id= $request->menace_id;
+
+          $vulnerabilites->save();
+
+          // $vulnerabilites =  Vulnerabilites::create($request->all());
+
+          return response()->json($vulnerabilites);
+      }
   }
 
   /**

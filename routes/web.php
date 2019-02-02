@@ -18,10 +18,33 @@ Route::get('/', function () {
 
 //Route Protocoles
 Route::resource('Protocoles', 'ProtocolesController');
+Route::post('/deleteProtocoles', 'ProtocolesController@destroy');
+Route::put('/Protocoles', 'ProtocolesController@UpdateProtocoles');
+Route::get('/listProtocoles', 'ProtocolesController@show');
+/*Route::get('/protocole', 'ProtocolesController@index');
+Route::post('/protocoleadd', 'ProtocolesController@store');*/
+
+
+
 // Route StatusRisks
 Route::resource('StatusRisks', 'StatusRisksController');
+Route::post('/NewStatusRisks','StatusRisksController@store');
+Route::post('/deleteStatusRisks', 'StatusRisksController@destroy');
+
+Route::get('/listStatusRisks', 'StatusRisksController@show');
+Route::put('/NewStatusRisks', 'StatusRisksController@UpdateStatusRisks');
+
+
 // Route Menaces
 Route::resource('Menaces', 'MenacesController');
+Route::post('/NewMenaces','MenacesController@store');
+Route::post('/deleteMenaces', 'MenacesController@destroy');
+Route::get('/listMenaces', 'MenacesController@show');
+Route::put('/NewMenaces', 'MenacesController@UpdateMenaces');
+
+
 
 // Route Vulnerabilites
 Route::resource('Vulnerabilites', 'VulnerabilitesController');
+Route::post('/NewVulnerabilites','VulnerabilitesController@store');
+
