@@ -16,15 +16,15 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>nom</th>
-                <th>description</th>
-                <th>methode/outils</th>
-                <th>impact</th>
-                <th>solution</th>
-                <th>probabilite</th>
-                <th>impact_risk</th>
+                <th>NOM</th>
+                <th>DESCRIPTION</th>
+                <th>METHODE/OUTILS</th>
+                <th>IMPACT</th>
+                <th>SOLUTION</th>
+                <th>PROBABILITE</th>
+                <th>IMPACT RISK</th>
                 <th>STATUS RISK</th>
-                <th>MENACES</th>
+                <th>TYPE MENACE</th>
                 <th>ACTION</th>
             </tr>
             </thead>
