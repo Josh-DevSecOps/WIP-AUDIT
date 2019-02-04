@@ -48,3 +48,7 @@ Route::put('/NewMenaces', 'MenacesController@UpdateMenaces');
 Route::resource('Vulnerabilites', 'VulnerabilitesController');
 Route::post('/NewVulnerabilites','VulnerabilitesController@store');
 
+//Route expereinces
+
+Route::resource('experience','ExperiencesController');
+

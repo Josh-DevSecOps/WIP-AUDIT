@@ -13,12 +13,12 @@ class Menaces extends Model
 
     public function Protocole()
     {
-        return $this->hasOne('Protocoles');
+        return $this->hasOne('App\Protocoles');
     }
 
     public function vulnerabilite()
     {
-        return $this->belongsToMany('Vulnerabilites');
+        return $this->hasMany('App\Vulnerabilites','menace_id');
     }
 
 }

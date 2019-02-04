@@ -13,7 +13,7 @@ class Protocoles extends Model
 
     public function menace()
     {
-        return $this->belongsToMany('Menaces');
+        return $this->hasMany('App\Menaces','protocole_id');
     }
 
 }

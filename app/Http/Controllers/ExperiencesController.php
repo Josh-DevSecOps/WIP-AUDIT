@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Experiences;
+use App\Protocoles;
 use Illuminate\Http\Request;
 
 class ExperiencesController extends Controller 
@@ -14,7 +16,13 @@ class ExperiencesController extends Controller
    */
   public function index()
   {
-    
+       $protocoles = Protocoles::with(['menace' => function ($query) {
+               $query->with('vulnerabilite');
+           }])->get();
+
+       $experience =  Experiences::all();
+
+       return view('list_experiences',['protocoles'=>$protocoles,'experiences'=>$experience]);
   }
 
   /**

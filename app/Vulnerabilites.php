@@ -13,7 +13,7 @@ class Vulnerabilites extends Model
 
     public function menace()
     {
-        return $this->belongsTo('Menaces');
+        return $this->belongsTo('App\Menaces');
     }
 
     public function StatusRisk()

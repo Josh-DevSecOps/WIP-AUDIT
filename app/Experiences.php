@@ -13,7 +13,7 @@ class Experiences extends Model
 
     public function vulnerabilite()
     {
-        return $this->belongsToMany('\Vulnerabilites');
+        return $this->belongsToMany('\Vulnerabilites','experiencesvulnerabilites','experiences_id','vulnerabiltes_id');
     }
 
 }
