@@ -8,7 +8,7 @@
             <button type="button" id="add" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square"></i></button>
         </div>
     </div>
-    <div class="col-sm-12">
+  <div class="table-responsive">
         @section ('cotable_panel_title','LIST VULNERABILITE')
 
         @section ('cotable_panel_body')
@@ -22,7 +22,8 @@
                 <th>IMPACT</th>
                 <th>SOLUTION</th>
                 <th>PROBABILITE</th>
-                <th>IMPACT RISK</th>
+                <th>IMPACT RISQUE</th>
+                <th>VALEUR DU RISQUE</th>
                 <th>STATUS RISK</th>
                 <th>TYPE MENACE</th>
                 <th>ACTION</th>
@@ -40,6 +41,7 @@
                 <td>{{ $vulnerabilite->solution_vulnerabilite }}</td>
                 <td>{{ $vulnerabilite->probabilite_risk }}</td>
                 <td>{{ $vulnerabilite->impact_risk }}</td>
+                <td>{{ $vulnerabilite->value_risk_vulnerabilte }}</td>
                 <td>{{ $vulnerabilite->libelle }}</td>
                 <td>{{ $vulnerabilite->nom_menace }}</td>
                 <td>
@@ -58,7 +60,7 @@
         </table>
         @endsection
         @include('widgets.panel', array('header'=>true, 'as'=>'cotable'))
-    </div>
+   </div>
 </div>
 
 @stop
@@ -106,10 +108,10 @@
                             <input type="text" name="impact_vulnerabilite" class="form-control" id="impact_vulnerabilite_id" placeholder="Entrez la solution de cette menace">
                         </div>
 
-                        <!--<div class="form-group has-success">
-                            <label class="control-label" for="inputSuccess">METHODE/OUTILS</label>
-                            <input type="text" name="methodetoutils_vulnerabilite" class="form-control" id="methodetoutils_vulnerabilite_id" placeholder="Entrez la solution de cette menace">
-                        </div>-->
+                        <div class="form-group has-success">
+                            <label class="control-label" for="inputSuccess">SOLUTION VULNERABILITE</label>
+                            <input type="text" name="solution" class="form-control" id="solution_id" placeholder="Entrez la solution de cette menace">
+                        </div>
 
                         <div class="form-group">
                             <label>Quel est Sa Probabilité</label>
@@ -121,10 +123,27 @@
 
                             </select>
                         </div>
-                        <div class="form-group has-success">
+
+                           <div class="form-group">
+                            <label>SON IMPACT </label>
+                            <select class="form-control" name="impact_risk" id="impact_risk_id">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+
+                            </select>
+                        </div>
+
+
+
+
+                        <!--<div class="form-group has-success">
                             <label class="control-label" for="inputSuccess">IMPACT RISK</label>
                             <input type="text" name="impact_risk" class="form-control" id="impact_risk_id" placeholder="Entrez la solution de cette menace">
-                        </div>
+                        </div>-->
+
+
 
                         <div class="form-group has-feedback">
                             <label class="control-label" for="inputSuccess">RISK STATUS</label>

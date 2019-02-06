@@ -57,9 +57,13 @@ class VulnerabilitesController extends Controller
           $vulnerabilites->description_vulnerabilite = $request->description_vulnerabilite;
           $vulnerabilites->methodetoutils_vulnerabilite = $request->methodetoutils_vulnerabilite;
           $vulnerabilites->impact_vulnerabilite=$request->impact_vulnerabilite;
-          $vulnerabilites->solution_vulnerabilite=$request->probabilite_risk;
-          $vulnerabilites->probabilite_risk=$request->impact_risk;
+          $vulnerabilites->solution_vulnerabilite=$request->solution;
+
+          $vulnerabilites->probabilite_risk=$request->probabilite_risk;
           $vulnerabilites->impact_risk = $request->impact_risk;
+
+         $vulnerabilites->value_risk_vulnerabilte = ($request->probabilite_risk * $request->impact_risk);
+
           $vulnerabilites->statusrisk_id = $request->riskstatus_id;
           $vulnerabilites->menace_id= $request->menace_id;
 

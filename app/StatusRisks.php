@@ -13,7 +13,7 @@ class StatusRisks extends Model
 
     public function vulnerabilite()
     {
-        return $this->belongsToMany('Vulnerabilites');
+        return $this->belongsToMany('App\Vulnerabilites');
     }
 
 }

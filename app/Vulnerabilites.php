@@ -9,7 +9,7 @@ class Vulnerabilites extends Model
 
     protected $table = 'vulnerabilte';
     public $timestamps = true;
-    protected $fillable = array('nom_vulnerabilite', 'description_vulnerabilite', 'methodetoutils_vulnerabilite', 'impact_vulnerabilite', 'solution_vulnerabilite', 'probabilite_risk', 'impact_risk', 'statusrisk_id', 'menace_id');
+    protected $fillable = array('nom_vulnerabilite', 'description_vulnerabilite', 'methodetoutils_vulnerabilite', 'impact_vulnerabilite', 'solution_vulnerabilite', 'probabilite_risk', 'impact_risk','value_risk_vulnerabilte', 'statusrisk_id', 'menace_id');
 
     public function menace()
     {
@@ -18,7 +18,7 @@ class Vulnerabilites extends Model
 
     public function StatusRisk()
     {
-        return $this->belongsTo('StatusRisks');
+        return $this->belongsTo('App\StatusRisks');
     }
 
 }

@@ -20,6 +20,7 @@
                         <th>DESCRIPTION</th>
                         <th>SOLUTION</th>
                         <th>DU PROTOCOLS</th>
+                        <th>VALEUR RISQUE</th>
                         <th>ACTION</th>
 
                     </tr>
@@ -33,6 +34,7 @@
                             <td>{{ $menace->description_menace }}</td>
                             <td>{{ $menace->solution_menace }}</td>
                             <td>{{ $menace->nom_protocole }}</td>
+                            <td>{{ $menace->id }}</td>
                             <td>
                                 <button class="btn btn-primary btn-default" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $menace->id }}"title="voir"><i class="fa fa-list"></i></button>
                                 <button class="btn btn-warning btn-danger" data-id="{{ $menace->id }}" title="Supprimer"><i class="fa fa-times"></i></button>

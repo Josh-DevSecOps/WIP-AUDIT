@@ -51,4 +51,7 @@ Route::post('/NewVulnerabilites','VulnerabilitesController@store');
 //Route expereinces
 
 Route::resource('experience','ExperiencesController');
+Route::post('/NewExperiences','ExperiencesController@store');
+Route::post('/deleteExperiences', 'ExperiencesController@destroy');
+
 

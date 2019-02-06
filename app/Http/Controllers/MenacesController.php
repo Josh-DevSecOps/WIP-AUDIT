@@ -27,6 +27,13 @@ class MenacesController extends Controller
           ->join('protocole','protocole.id','=','menace.protocole_id')
           ->get();
 
+    /*  $moyonnevaluerisk = DB::table('menace')
+                 ->join('vulnerabilte', 'menace.id', '=', 'vulnerabilte.menace_id')
+                 ->avg('value_risk_vulnerabilte')
+                  ->get();*/
+
+
+
       return view('list_menaces', ['menaces'=>$menaces,'protocoles'=>Protocoles::all()]);
   }
 

@@ -79,7 +79,7 @@
 
                         <div class="form-group has-success">
                             <label class="control-label" for="inputSuccess">DESCRIPTION</label>
-                            <input type="textarea" name="description" class="form-control" id="description_id" placeholder="Donnez une description">
+                            <input type="text" name="description" class="form-control" id="description_id" placeholder="Donnez une description">
                         </div>
 
                         <div class="form-group has-success">
@@ -94,7 +94,7 @@
                                            @foreach ($menace->vulnerabilite as $vulnerabilite)
                                     <!--<h3>Vulnérabilite : ------------ <input type="checkbox" name="vulnerabilite" value="{{ $vulnerabilite->id }}"> {{ $vulnerabilite->nom_vulnerabilite }}</h3>-->
 
-                                        <input type="checkbox" name="vulnerabilite" value="{{ $vulnerabilite->id }}"> {{ $vulnerabilite->nom_vulnerabilite }}
+                                        <input type="checkbox" name="vulnerabilite[]" value="{{ $vulnerabilite->id }}"> {{ $vulnerabilite->nom_vulnerabilite }}
 
 
                                 @endforeach
@@ -145,28 +145,21 @@
                 var type = 'POST';
                 var statut = $('#save').val();
 
-                // alert(data);
+              alert(data);
                 if( statut == 'modifier')
                 {
                     type = 'PUT';
                     //data += '&id='+$(this).data('id');
                 }
-                if($('#nom_menace_id').val()=='')
+                /*if($('#nom_experience_id').val()=='')
                 {
-                    alert("the menace is requred");
+                    alert("the name is requred");
                 }
-                else if($('#description_menace_id').val()=='')
+                else if($('#description_id').val()=='')
                 {
-                    alert("the description menace is requred");
-                }
-                else if($('#solution_menace_id').val()=='')
-                {
-                    alert("the solution  menace is requred");
-                }
-                else if($('#protocole_id').val()=='')
-                {
-                    alert("the protocole menace is requred");
-                }
+                    alert("the description experience is requred");
+                }*/
+
                 else
                 {
 
@@ -179,10 +172,9 @@
 
 
                             var row = '<tr id="menaces'+ data.id+'" >' +
-                                '<td>' + data.nom_menace + '</td>' +
-                                '<td>' + data.description_menace + '</td>' +
-                                '<td>' + data.solution_menace + '</td>' +
-                                '<td>' + $('#protocole_id > option[value='+data.protocole_id+']').text()  + '</td>' +                                '<td>' +
+                                '<td>' + data.nom_experience + '</td>' +
+                                '<td>' + data.description + '</td>' +
+                                '<td>' + $('#experienceid > option[value='+data.experienceid+']').text()  + '</td>' +                                '<td>' +
                                 '<button class="btn btn-primary btn-default" data-id="' + data.id + '" title="voir"><i class="fa fa-list"></i></button> ' +
                                 '<button class="btn btn-warning btn-danger" data-id="' + data.id + '"title="Supprimer"><i class="fa fa-times"></i></button>'+
                                 '</td>'+
@@ -192,7 +184,7 @@
                             }
                             else
                             {
-                                $('#menaces'+ data.id).replaceWith(row);
+                                $('#experiences'+ data.id).replaceWith(row);
                                 $('#myModal').modal('hide');
 
                             }
@@ -216,7 +208,7 @@
         $('tbody').delegate('.btn-danger','click',function () {
 
             var value= $(this).data('id');
-            var url = '{{ URL::to('/deleteMenaces') }}';
+            var url = '{{ URL::to('/deleteExperiences') }}';
             //alert(value);
             if(confirm("etez vous sure de vouloir Supprimer")==true){
 
@@ -225,7 +217,7 @@
                     url : url,
                     data : {'id':value},
                     success:function () {
-                        $('#menaces'+value).remove();
+                        $('#experiences'+value).remove();
 
                     }
                 });
