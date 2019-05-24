@@ -20,8 +20,10 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>LIBELLE</th>
                         <th>VALEUR</th>
+                        <th>LIBELLE</th>
+                        <th>CONSEQUENCE</th>
+                        <th>ACTIONS-CORRECTRICES</th>
                         <th>ACTION</th>
 
                     </tr>
@@ -31,8 +33,19 @@
                     @foreach($riskstatus as $risk)
                         <tr id="riskstatus{{$risk->id}}" class="success">
                             <td>{{ isset($i)? ++$i : $i=1 }}</td>
-                            <td>{{ $risk-> libelle}}</td>
                             <td>{{ $risk-> valeur}}</td>
+                                @if ($risk-> libelle == "FAIBLE" )
+                                <td style="background-color: green">{{ $risk-> libelle}}</td>
+                                  @elseif($risk-> libelle == "Moyen")
+                                <td style="background-color: blue">{{ $risk-> libelle}}</td>
+                                    @elseif($risk-> libelle == "Elevé")
+                                <td style="background-color: orange">{{ $risk-> libelle}}</td>
+                            @else
+                                <td style="background-color: red">{{ $risk-> libelle}}</td>
+                                @endif
+
+                            <td>{{ $risk-> consequence}}</td>
+                            <td>{{ $risk-> actions}}</td>
                             <td>
                                 <button class="btn btn-primary btn-default" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $risk->id }}"title="voir"><i class="fa fa-list"></i></button>
                                 <button class="btn btn-warning btn-danger" data-id="{{ $risk->id }}" title="Supprimer"><i class="fa fa-times"></i></button>
@@ -89,21 +102,22 @@
                             <label>Quel est sa valeur</label>
                             <select class="form-control" name="valeur" id="valeur_id">
                                 <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="5">6</option>
-                                <option value="5">7</option>
-                                <option value="5">8</option>
-                                <option value="5">9</option>
-                                <option value="5">10</option>
-                                <option value="5">11</option>
-                                <option value="5">12</option>
-                                <option value="5">13</option>
-                                <option value="5">14</option>
+                                <option value="2-4">2-4</option>
+                                <option value="6-8">6-8</option>
+                                <option value="12-16">12-16</option>
                             </select>
                         </div>
+
+                    <div class="form-group has-success">
+                        <label class="control-label" for="inputSuccess">CONSEQUENCE</label>
+                        <input type="text" name="consequence" class="form-control" id="consequence_id" placeholder="Entrez la consequence du risk statut">
+                    </div>
+
+                    <div class="form-group has-success">
+                        <label class="control-label" for="inputSuccess">ACTION</label>
+                        <textarea rows="4" cols="50" name="actions" class="form-control" id="action_id" placeholder="Entrez l'action du risk statut">   </textarea>
+
+                    </div>
 
 
 
@@ -158,6 +172,14 @@
                 {
                     alert("the valeur is requred");
                 }
+                if($('#consequence_id').val()=='')
+                {
+                    alert("the consequence is requred");
+                }
+                else if($('#action_id').val()=='')
+                {
+                    alert("the action is requred");
+                }
                 else
                 {
 
@@ -172,6 +194,8 @@
                             var row = '<tr id="riskstatus'+ data.id+'" >' +
                                 '<td>' + data.libelle + '</td>' +
                                 '<td>' + data.valeur + '</td>' +
+                                '<td>' + data.consequence + '</td>' +
+                                '<td>' + data.actions + '</td>' +
                                 '<td>' +
                                 '<button class="btn btn-primary btn-default" data-id="' + data.id + '" title="voir"><i class="fa fa-list"></i></button> ' +
                                 '<button class="btn btn-warning btn-danger" data-id="' + data.id + '"title="Supprimer"><i class="fa fa-times"></i></button>'+
@@ -238,6 +262,8 @@
                 data : {'id':value},
 
                 success:function (data) {  console.log(data)
+                    $('#action_id').val(data.actions);
+                    $('#consequence_id').val(data.consequence);
                     $('#libelle_id').val(data.libelle);
                     $('#valeur_id').val(data.valeur);
                     $('#riskstatusid').val(data.id);

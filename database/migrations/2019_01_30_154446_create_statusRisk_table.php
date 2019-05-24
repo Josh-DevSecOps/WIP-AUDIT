@@ -11,8 +11,12 @@ class CreateStatusRiskTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->string('libelle', 255);
-			$table->smallInteger('valeur');
-		});
+			$table->string('valeur',255);
+            $table->string('consequence',254);
+            $table->longText('actions');
+
+
+        });
 	}
 
 	public function down()

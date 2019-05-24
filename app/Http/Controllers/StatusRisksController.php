@@ -119,6 +119,10 @@ class StatusRisksController extends Controller
             $riskstatus->valeur = $request->valeur;
 
 
+            $riskstatus->consequence = $request->consequence;
+            $riskstatus->actions = $request->actions;
+
+
             //enregistrement des modifications
             $riskstatus->save();
 

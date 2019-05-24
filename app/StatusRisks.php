@@ -9,7 +9,7 @@ class StatusRisks extends Model
 
     protected $table = 'statusRisk';
     public $timestamps = true;
-    protected $fillable = array('libelle', 'valeur');
+    protected $fillable = array('libelle', 'valeur','consequence','actions');
 
     public function vulnerabilite()
     {
