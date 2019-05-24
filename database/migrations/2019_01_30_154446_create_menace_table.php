@@ -11,8 +11,8 @@ class CreateMenaceTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->string('nom_menace', 255);
-			$table->string('description_menace', 255);
-			$table->string('solution_menace', 255);
+			$table->longText('description_menace');
+			$table->longText('solution_menace');
 			$table->integer('protocole_id')
                 ->references('id')->on('protocole')
                 ->onDelete('restrict')

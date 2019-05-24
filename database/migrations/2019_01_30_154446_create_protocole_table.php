@@ -11,7 +11,7 @@ class CreateProtocoleTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->string('nom_protocole', 255);
-			$table->string('description_protocole', 255);
+			$table->longText('description_protocole');
 		});
 	}
 
