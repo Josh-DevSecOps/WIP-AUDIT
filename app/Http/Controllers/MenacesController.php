@@ -27,10 +27,32 @@ class MenacesController extends Controller
           ->join('protocole','protocole.id','=','menace.protocole_id')
           ->get();
 
+/*
+   $risque = DB::table('menace')
+          ->join('vulnerabilte', 'menace.id', '=', 'vulnerabilte.menace_id')
+          ->where('menace.id', 1)
+           ->avg('value_risk_vulnerabilte')
+      ->COUNT('vulnerabilte.id')
+       ->get();*/
+
+      $risque = " SELECT SUM('value_risk_vulnerabilte')/ COUNT('vulnerabilte.id')
+FROM menace INNER JOIN vulnerabilte on menace.id=vulnerabilte.menace_id
+WHERE menace.id=1 ";
+
+
+      dd($risque);
+
     /*  $moyonnevaluerisk = DB::table('menace')
                  ->join('vulnerabilte', 'menace.id', '=', 'vulnerabilte.menace_id')
                  ->avg('value_risk_vulnerabilte')
-                  ->get();*/
+                  ->get();
+
+
+
+
+    SELECT SUM(`value_risk_vulnerabilte`)/ COUNT(vulnerabilte.id)
+FROM menace INNER JOIN vulnerabilte on menace.id=vulnerabilte.menace_id
+WHERE menace.id=1*/
 
 
 

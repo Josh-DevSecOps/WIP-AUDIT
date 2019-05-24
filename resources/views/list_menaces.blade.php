@@ -27,6 +27,7 @@
                     </thead>
                     <tbody>
 
+
                     @foreach($menaces as $menace)
                         <tr id="menaces{{$menace->id}}" class="success">
                             <td>{{ isset($i)? ++$i : $i=1 }}</td>
@@ -34,7 +35,7 @@
                             <td>{{ $menace->description_menace }}</td>
                             <td>{{ $menace->solution_menace }}</td>
                             <td>{{ $menace->nom_protocole }}</td>
-                            <td>{{ $menace->id }}</td>
+                            <td>{{$menace->id}}</td>
                             <td>
                                 <button class="btn btn-primary btn-default" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $menace->id }}"title="voir"><i class="fa fa-list"></i></button>
                                 <button class="btn btn-warning btn-danger" data-id="{{ $menace->id }}" title="Supprimer"><i class="fa fa-times"></i></button>
