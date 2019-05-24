@@ -11,10 +11,10 @@ class CreateVulnerabilteTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->string('nom_vulnerabilite', 255);
-			$table->string('description_vulnerabilite', 255);
-			$table->string('methodetoutils_vulnerabilite', 255);
-			$table->string('impact_vulnerabilite', 255);
-			$table->string('solution_vulnerabilite', 255)->nullable();
+			$table->longText('description_vulnerabilite');
+			$table->longText('methodetoutils_vulnerabilite');
+			$table->longText('impact_vulnerabilite');
+			$table->longText('solution_vulnerabilite')->nullable();
 			$table->smallInteger('probabilite_risk');
 			$table->smallInteger('impact_risk');
             $table->integer('value_risk_vulnerabilte');
