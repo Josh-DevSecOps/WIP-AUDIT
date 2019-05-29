@@ -33,14 +33,14 @@ class MenacesController extends Controller
           ->where('menace.id', 1)
            ->avg('value_risk_vulnerabilte')
       ->COUNT('vulnerabilte.id')
-       ->get();*/
+       ->get();
 
       $risque = " SELECT SUM('value_risk_vulnerabilte')/ COUNT('vulnerabilte.id')
 FROM menace INNER JOIN vulnerabilte on menace.id=vulnerabilte.menace_id
 WHERE menace.id=1 ";
 
 
-      dd($risque);
+      dd($risque);*/
 
     /*  $moyonnevaluerisk = DB::table('menace')
                  ->join('vulnerabilte', 'menace.id', '=', 'vulnerabilte.menace_id')

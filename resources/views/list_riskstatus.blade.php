@@ -34,11 +34,11 @@
                         <tr id="riskstatus{{$risk->id}}" class="success">
                             <td>{{ isset($i)? ++$i : $i=1 }}</td>
                             <td>{{ $risk-> valeur}}</td>
-                                @if ($risk-> libelle == "FAIBLE" )
+                                @if ($risk-> libelle == "Faible" )
                                 <td style="background-color: green">{{ $risk-> libelle}}</td>
                                   @elseif($risk-> libelle == "Moyen")
                                 <td style="background-color: blue">{{ $risk-> libelle}}</td>
-                                    @elseif($risk-> libelle == "Elevé")
+                                    @elseif($risk-> libelle == "Eleve")
                                 <td style="background-color: orange">{{ $risk-> libelle}}</td>
                             @else
                                 <td style="background-color: red">{{ $risk-> libelle}}</td>

@@ -94,23 +94,33 @@
 
                         <div class="form-group has-success">
                             <label class="control-label" for="inputSuccess">DESCRIPTION</label>
-                            <input type="text" name="description_vulnerabilite" class="form-control" id="description_vulnerabilite_id" placeholder="Entrez la description de la menace">
+                           <!-- <input type="text" name="description_vulnerabilite" class="form-control" id="description_vulnerabilite_id" placeholder="Entrez la description de la menace">-->
+
+                               <textarea rows="4" cols="50" name="description_vulnerabilite" class="form-control" id="description_vulnerabilite_id" placeholder="Entrez la description de la menace">   </textarea>
 
                         </div>
 
                         <div class="form-group has-success">
                             <label class="control-label" for="inputSuccess">METHODE/OUTILS</label>
-                            <input type="text" name="methodetoutils_vulnerabilite" class="form-control" id="methodetoutils_vulnerabilite_id" placeholder="Entrez la solution de cette menace">
+                           <!-- <input type="text" name="methodetoutils_vulnerabilite" class="form-control" id="methodetoutils_vulnerabilite_id" placeholder="Entrez la solution de cette menace">-->
+                            
+                             <textarea rows="4" cols="50" name="methodetoutils_vulnerabilite" class="form-control" id="methodetoutils_vulnerabilite_id" placeholder="Entrez la solution de cette menace">   </textarea>
+
                         </div>
 
                         <div class="form-group has-success">
                             <label class="control-label" for="inputSuccess">IMPACT VULNERABILITE</label>
-                            <input type="text" name="impact_vulnerabilite" class="form-control" id="impact_vulnerabilite_id" placeholder="Entrez la solution de cette menace">
+                            <!--<input type="text" name="impact_vulnerabilite" class="form-control" id="impact_vulnerabilite_id" placeholder="Entrez la solution de cette menace">-->
+
+                            <textarea rows="4" cols="50" name="impact_vulnerabilite" class="form-control" id="impact_vulnerabilite_id" placeholder="Entrez IMPACT VULNERABILITE">   </textarea>
+
                         </div>
 
                         <div class="form-group has-success">
                             <label class="control-label" for="inputSuccess">SOLUTION VULNERABILITE</label>
-                            <input type="text" name="solution" class="form-control" id="solution_id" placeholder="Entrez la solution de cette menace">
+                           <!-- <input type="text" name="solution" class="form-control" id="solution_id" placeholder="Entrez la solution de cette menace">-->
+
+                            <textarea rows="4" cols="50" name="solution" class="form-control" id="solution_id" placeholder="Entrez la solution de cette VULNERABILITE">   </textarea>
                         </div>
 
                         <div class="form-group">
@@ -205,7 +215,7 @@
                 var type = 'POST';
                 var statut = $('#save').val();
 
-                 alert(data);
+                 //alert(data);
                 if( statut == 'modifier')
                 {
                     type = 'PUT';

@@ -80,18 +80,26 @@
 
                         <div class="form-group has-success">
                             <label class="control-label" for="inputSuccess">LIBELLE</label>
-                            <input type="text" name="nom_menace" class="form-control" id="nom_menace_id" placeholder="Entrez le nom de menace">
+                           <input type="text" name="nom_menace" class="form-control" id="nom_menace_id" placeholder="Entrez le nom de menace">
+                           
                         </div>
 
                         <div class="form-group has-success">
                             <label class="control-label" for="inputSuccess">DESCRIPTION</label>
-                            <input type="text" name="description_menace" class="form-control" id="description_menace_id" placeholder="Entrez la description de la menace">
+                           <!-- <input type="text" name="description_menace" class="form-control" id="description_menace_id" placeholder="Entrez la description de la menace">-->
+
+                             <textarea rows="4" cols="50" name="description_menace" class="form-control" id="description_menace_id" placeholder="Entrez la description de la menace">   </textarea>
 
                         </div>
 
                         <div class="form-group has-success">
                             <label class="control-label" for="inputSuccess">SOLUTION</label>
-                            <input type="text" name="solution_menace" class="form-control" id="solution_menace_id" placeholder="Entrez la solution de cette menace">
+                         <!--   <input type="text" name="solution_menace" class="form-control" id="solution_menace_id" placeholder="Entrez la solution de cette menace">-->
+
+                            <textarea rows="4" cols="50" name="solution_menace" class="form-control" id="solution_menace_id" placeholder="Entrez la solution de cette menace">   </textarea>
+                            
+
+
                         </div>
 
                         <div class="form-group has-feedback">
