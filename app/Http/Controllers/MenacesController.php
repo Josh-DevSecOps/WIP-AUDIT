@@ -23,9 +23,16 @@ class MenacesController extends Controller
    */
   public function index()
   {
-      $menaces = DB::table('menace')
+      /*$menaces = DB::table('menace')
           ->join('protocole','protocole.id','=','menace.protocole_id')
-          ->get();
+          ->get(); */
+
+      $menaces = DB::select('
+        SELECT (SUM(`value_risk_vulnerabilte`)/ COUNT(\'vulnerabilte.id\')) as valeurrisque, menace.*, protocole.*
+        FROM menace INNER JOIN vulnerabilte on menace.id=vulnerabilte.menace_id
+        INNER join protocole ON menace.protocole_id = protocole.id
+        group by menace.id ');
+      //dd($risque);
 
 /*
    $risque = DB::table('menace')
