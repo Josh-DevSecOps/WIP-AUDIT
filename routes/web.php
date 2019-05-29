@@ -42,6 +42,9 @@ Route::post('/deleteMenaces', 'MenacesController@destroy');
 Route::get('/listMenaces', 'MenacesController@show');
 Route::put('/NewMenaces', 'MenacesController@UpdateMenaces');
 
+Route::get('chartjs', 'MenacesController@chartjs');
+
+
 
 
 // Route Vulnerabilites

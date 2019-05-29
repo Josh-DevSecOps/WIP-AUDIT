@@ -67,6 +67,13 @@
             <a href="{{ url ('Menaces') }}"><i class="fa fa-exclamation-triangle"></i> THREATS </a>
             </li>
 
+            <!---test chartjs -->
+            <li {{ (Request::is('/') ? 'class="active"' : '') }}>
+            <a href="{{ url ('chartjs') }}"><i class="fa fa-exclamation-triangle"></i> CHARTSJS </a>
+            </li>
+
+            <!---end test chartjs -->
+
 
 
             <!--  Vulnerabilites -->

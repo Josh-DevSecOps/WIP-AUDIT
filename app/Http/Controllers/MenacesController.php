@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Menaces;
 use App\Protocoles;
+use function foo\func;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Response;
@@ -164,6 +165,21 @@ WHERE menace.id=1*/
 
             return Response($menaces);
         }
+    }
+
+    public function chartjs()
+    {
+        $tableau = Menaces::all()->toArray();
+
+        $data = array_map(function($element){
+            return $element["id"]*3;
+        }, $tableau);
+
+        $labels = array_map(function($element){
+            return $element["nom_menace"];
+        }, $tableau);
+
+        return view('list_first_chartjs', ['data'=>json_encode($data), 'labels'=>json_encode($labels)]);
     }
   
 }
