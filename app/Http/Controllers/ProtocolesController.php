@@ -163,12 +163,22 @@ class ProtocolesController extends Controller
 
     public function chartjs()
     {
-        $protocols = DB::select('   SELECT COUNT(menace.id) AS numbermenace,protocole.nom_protocole as nomprot
+        /*$protocols = DB::select('   SELECT COUNT(menace.id) AS numbermenace,protocole.nom_protocole as nomprot
                                     FROM `menace` 
                                     INNER JOIN protocole ON menace.protocole_id=protocole.id
-                                    GROUP BY protocole.nom_protocole ');
-       dd($protocols);
-         $tableau = $protocols->toArray();
+                                    GROUP BY protocole.nom_protocole ');*/
+
+        // Cette requête renvoi le nombre de menace d'un protocole donné (statistique qui montre le protocole ayant le plus de menaces)
+        $protocols = DB::table('menace')
+                     ->join('protocole','menace.protocole_id','=','menace.protocole_id')
+                     ->select(DB::raw('COUNT(menace.id) AS numbermenace,protocole.nom_protocole as nomprot'))
+                     ->GroupBy('nomprot')
+                     ->get();
+    dd($protocols);
+
+        $tableau = json_decode($protocols, true);
+
+        //$tableau = $protocols->toArray();
 
 
         $data = array_map(function($element){
