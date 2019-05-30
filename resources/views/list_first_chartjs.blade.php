@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
-@section('page_heading','HOME')
+@section('page_heading','CHARTS-THREATS')
 @section('section')
-    <div style="width: 300px; height: 200px;">
+    <div style="width: 400px; height: 400px;">
         <canvas id="myChart" width="400" height="400"></canvas>
     </div>
 {{--
@@ -17,7 +17,7 @@
         data: {
             labels: {!! $labels !!},
             datasets: [{
-                label: '# of Votes',
+                label: '# Names of Threats ',
                 data: {{ $data }},
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

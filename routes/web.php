@@ -42,10 +42,6 @@ Route::post('/deleteMenaces', 'MenacesController@destroy');
 Route::get('/listMenaces', 'MenacesController@show');
 Route::put('/NewMenaces', 'MenacesController@UpdateMenaces');
 
-Route::get('chartjs', 'MenacesController@chartjs');
-
-
-
 
 // Route Vulnerabilites
 Route::resource('Vulnerabilites', 'VulnerabilitesController');
@@ -57,4 +53,11 @@ Route::resource('experience','ExperiencesController');
 Route::post('/NewExperiences','ExperiencesController@store');
 Route::post('/deleteExperiences', 'ExperiencesController@destroy');
 
+
+//Route ChartsJS- Menaces
+Route::get('chartjs', 'MenacesController@chartjs');
+//Route ChartsJS- Vulnerabilites
+Route::get('chartVulnerabilites', 'VulnerabilitesController@chartjs');
+//Route ChartsJS-Protocoles
+Route::get('chartProtocoles', 'ProtocolesController@chartjs');
 

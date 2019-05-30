@@ -171,6 +171,8 @@ WHERE menace.id=1*/
     {
         $tableau = Menaces::all()->toArray();
 
+        //dd($tableau);
+
         $data = array_map(function($element){
             return $element["id"]*3;
         }, $tableau);

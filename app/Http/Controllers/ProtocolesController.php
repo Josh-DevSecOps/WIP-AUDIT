@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\Exceptions;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
+
 
 
 class ProtocolesController extends Controller 
@@ -154,6 +156,30 @@ class ProtocolesController extends Controller
 
             return Response($protocols);
         }
+    }
+
+
+
+
+    public function chartjs()
+    {
+        $protocols = DB::select('   SELECT COUNT(menace.id) AS numbermenace,protocole.nom_protocole as nomprot
+                                    FROM `menace` 
+                                    INNER JOIN protocole ON menace.protocole_id=protocole.id
+                                    GROUP BY protocole.nom_protocole ');
+       dd($protocols);
+         $tableau = $protocols->toArray();
+
+
+        $data = array_map(function($element){
+            return $element["numbermenace"];
+        }, $tableau);
+
+        $labels = array_map(function($element){
+            return $element["nomprot"];
+        }, $tableau);
+
+        return view('list_Protocols_chartjs', ['data'=>json_encode($data), 'labels'=>json_encode($labels)]);
     }
 
 

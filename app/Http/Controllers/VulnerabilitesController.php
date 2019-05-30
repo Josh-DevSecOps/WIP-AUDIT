@@ -118,6 +118,23 @@ class VulnerabilitesController extends Controller
   {
     
   }
+
+    public function chartjs()
+    {
+        $vulnerabilities = Vulnerabilites::all();
+        $tableau = $vulnerabilities->toArray();
+
+
+        $data = array_map(function($element){
+            return $element["value_risk_vulnerabilte"];
+        }, $tableau);
+
+        $labels = array_map(function($element){
+            return $element["nom_vulnerabilite"];
+        }, $tableau);
+
+        return view('list_Vulnerabilites_chartjs', ['data'=>json_encode($data), 'labels'=>json_encode($labels)]);
+    }
   
 }
 

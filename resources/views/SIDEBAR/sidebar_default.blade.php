@@ -32,13 +32,18 @@
                         <ul class="nav nav-third-level">
 
                             <li>
-                                <a href="#">PROTOCOLS</a>
+                               <a href="{{ url ('chartProtocoles') }}"><i class="fa fa-sitemap fa-fw"></i> CHARTS-PROTOCOLS </a>
+
                             </li>
                             <li>
-                                <a href="#">THREATS</a>
+                                <!--<a href="#">THREATS</a>-->
+                                <a href="{{ url ('chartjs') }}"><i class="fa fa-exclamation-triangle"></i> CHARTS-THREATS </a>
+
                             </li>
                             <li>
-                                <a href="#">VULNERABILITIES</a>
+                                <a href="{{ url ('chartVulnerabilites') }}"><i class="fa fa-filter"></i> CHARTS-VULNERABILITIES </a>
+
+
                             </li>
 
                         </ul>
@@ -68,9 +73,9 @@
             </li>
 
             <!---test chartjs -->
-            <li {{ (Request::is('/') ? 'class="active"' : '') }}>
+        <!---  <li {{ (Request::is('/') ? 'class="active"' : '') }}>
             <a href="{{ url ('chartjs') }}"><i class="fa fa-exclamation-triangle"></i> CHARTSJS </a>
-            </li>
+            </li>-->
 
             <!---end test chartjs -->
 

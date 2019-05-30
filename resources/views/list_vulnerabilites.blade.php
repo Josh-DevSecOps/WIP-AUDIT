@@ -12,7 +12,7 @@
         @section ('cotable_panel_title','LIST VULNERABILITE')
 
         @section ('cotable_panel_body')
-        <table class="table table-bordered">
+        <table id="data-table" class="table table-bordered">
             <thead>
             <tr>
                 <th>#</th>
@@ -195,6 +195,8 @@
 @section('js')
     <script>
         $(document).ready(function () {
+            $('#data-table').DataTable();
+
 
             $.ajaxSetup({
                 headers: {
